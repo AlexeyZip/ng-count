@@ -1,0 +1,27 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi" [formControl]="favoriteColorControl">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+  </form>
+<!-- {{ counter }}
+<button (click)="counterAdd()">Add</button>
+<button (click)="counterMinus()">Minus</button> -->
+
+<ng-container *ngFor="let counter of counters; let i = index">
+    <div>
+        <ng-container *ngIf="counter.value === 7; else commonBlock">
+            {{ counter.name }} - {{ counter.value }} (Lucky number)
+        </ng-container>
+        <ng-template #commonBlock>
+            {{ counter.name }} - {{ counter.value }}
+        </ng-template>
+        <button (click)="counterAdd(i)">Add</button>
+        <button (click)="counterMinus(i)">Minus</button>
+    </div>
+</ng-container>
